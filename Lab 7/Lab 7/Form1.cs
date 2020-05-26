@@ -14,6 +14,7 @@ namespace Lab_7
     {
         double num1;
         string operador;
+        double[] resultado = new double[1];
         public Calculadora()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace Lab_7
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string nump = Convert.ToString(num1);
             num1 = Convert.ToDouble(Pantalla.Text);
             Pantalla.Text = "0";
             operador = "*";
@@ -146,39 +148,66 @@ namespace Lab_7
 
         private void button17_Click(object sender, EventArgs e)
         {
-
+            Pantalla.Text = Convert.ToString(resultado[0]);
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             double num2;
             double numfin;
-
+            string nump = Convert.ToString(num1);
+            int c1 = nump.Count(f => f == '.');
+            
             num2 = Convert.ToDouble(Pantalla.Text);
-
+            string nump2 = Convert.ToString(num2);
+            int c2 = nump2.Count(h => h == '.');
             if (operador == "+")
             {
                 numfin = (num1 + num2);
-                Pantalla.Text = Convert.ToString(numfin);
-                num1 = numfin;
+                if (c1>1 || c2>1)
+                {
+                    Pantalla.Text = "Syntax ERROR";
+                }
+                else
+                {
+                    Pantalla.Text = Convert.ToString(numfin);
+                    num1 = numfin;
+                    resultado[0] = numfin;
+                }
             }
             if (operador == "-")
             {
                 numfin = (num1 - num2);
-                Pantalla.Text = Convert.ToString(numfin);
-                num1 = numfin;
+                if (c1 > 1 || c2 > 1)
+                {
+                    Pantalla.Text = "Syntax ERROR";
+                }
+                else
+                {
+                    Pantalla.Text = Convert.ToString(numfin);
+                    num1 = numfin;
+                    resultado[0] = numfin;
+                }
             }
             if (operador == "*")
             {
                 numfin = (num1 * num2);
-                Pantalla.Text = Convert.ToString(numfin);
-                num1 = numfin;
+                if (c1 > 1 || c2 > 1)
+                {
+                    Pantalla.Text = "Syntax ERROR";
+                }
+                else
+                {
+                    Pantalla.Text = Convert.ToString(numfin);
+                    num1 = numfin;
+                    resultado[0] = numfin;
+                }
             }
             if (operador == "/")
             {
                 if (num2 == 0)
                 {
-                    Pantalla.Text = "ath EROOR";
+                    Pantalla.Text = "Math EROOR";
 
                 }
                 else
@@ -186,6 +215,7 @@ namespace Lab_7
                     numfin = (num1 / num2);
                     Pantalla.Text = Convert.ToString(numfin);
                     num1 = numfin;
+                    resultado[0] = numfin;
                 }
             }
         }
@@ -208,6 +238,7 @@ namespace Lab_7
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string nump = Convert.ToString(num1);
             num1 = Convert.ToDouble(Pantalla.Text);
             Pantalla.Text = "0";
             operador = "/";
@@ -215,6 +246,7 @@ namespace Lab_7
 
         private void button12_Click(object sender, EventArgs e)
         {
+            string nump = Convert.ToString(num1);
             num1 = Convert.ToDouble(Pantalla.Text);
             Pantalla.Text = "0";
             operador = "+";
@@ -222,6 +254,7 @@ namespace Lab_7
 
         private void button11_Click(object sender, EventArgs e)
         {
+            string nump = Convert.ToString(num1);
             num1 = Convert.ToDouble(Pantalla.Text);
             Pantalla.Text = "0";
             operador = "-";
